@@ -115,12 +115,6 @@ describe('Generate button — desserts validation (Issue #1)', () => {
 
 });
 
-// ─────────────────────────────────────────────────────────────
-// ISSUE #2 — this test has a bug in the test code itself.
-// It is testing the wrong thing. Fix the test so it is correct.
-// Hint: read what the test name says, then check the expect().
-// ─────────────────────────────────────────────────────────────
-
 describe('Generate button — success message (Issue #2)', () => {
 
   test('selected items appear in the success message', () => {
@@ -156,8 +150,12 @@ describe('Generate button — success message (Issue #2)', () => {
 describe('Generate button — multiple selections (Issue #3)', () => {
 
   test('multiple items from the same tab all appear in the message', () => {
-    // Write your test here
-
+    check('starter-soup');
+    check('starter-salad');
+    check('main-steak');
+    check('dessert-icecream');
+    click('generate-btn');
+    expect(getMessage()).toContain('Soup');
+    expect(getMessage()).toContain('Salad');
   });
-
 });
