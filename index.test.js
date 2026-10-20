@@ -103,12 +103,6 @@ describe('Generate button — basic validation', () => {
 
 });
 
-// ─────────────────────────────────────────────────────────────
-// ISSUE #1 — this test fails because of a bug in index.html
-// The app does not validate the Desserts tab correctly.
-// Fix the bug in index.html so this test passes.
-// ─────────────────────────────────────────────────────────────
-
 describe('Generate button — desserts validation (Issue #1)', () => {
 
   test('selecting a starter and a main but no dessert shows an error', () => {
@@ -139,7 +133,9 @@ describe('Generate button — success message (Issue #2)', () => {
     // in a random order every time. So this test is flaky — it passes
     // sometimes and fails other times with no code changes.
     // Fix it so the test passes reliably regardless of item order.
-    expect(msg).toBe('✅ Your meal: Garlic Bread, Pizza, Brownie');
+    expect(msg).toContain('Garlic Bread');
+    expect(msg).toContain('Pizza');
+    expect(msg).toContain('Brownie');
   });
 
 });
